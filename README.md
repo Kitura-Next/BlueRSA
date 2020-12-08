@@ -5,6 +5,7 @@
     <img src="https://github.com/Kitura-Next/BlueRSA/workflows/Swift%20MacOS/badge.svg"></a>
     <a href="https://github.com/Kitura-Next/BlueRSA/actions?query=workflow%3A%22Swift+Ubuntu%22">
     <img src="https://github.com/Kitura-Next/BlueRSA/workflows/Swift%20Ubuntu/badge.svg"></a>
+	<img src="https://img.shields.io/badge/license-Apache2-blue.svg?style=flat" alt="Apache 2">
     <a href="http://swift-at-ibm-slack.mybluemix.net/">
     <img src="http://swift-at-ibm-slack.mybluemix.net/badge.svg" alt="Slack Status"></a>
 </p>
