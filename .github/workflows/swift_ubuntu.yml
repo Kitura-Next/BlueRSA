@@ -5,40 +5,20 @@ on:
     branches: [ master ]
 
 jobs:
-  ubuntu-swift-51:
+  ubuntu-swift:
     runs-on: ubuntu-18.04
-    container: swift:5.1
-    steps:
-    - uses: actions/checkout@v2
-    - name: Swift Version
-      run: swift --version
-    - name: Install libssl
-      run: apt-get update && apt-get install -y libssl-dev
-    - name: Build
-      run: swift build
-    - name: Test
-      run: swift test --enable-test-discovery
+    strategy:
+      fail-fast: false
+      matrix:
+        swift_version: [5.1.5-bionic, 5.2.3-bionic, 5.3.1-bionic]
 
-  ubuntu-swift-52:
-    runs-on: ubuntu-18.04
-    container: swift:5.2.3-bionic
+    container: swift:${{ matrix.swift_version }}
     steps:
     - uses: actions/checkout@v2
     - name: Swift Version
       run: swift --version
-    - name: Install libssl
-      run: apt-get update && apt-get install -y libssl-dev
-    - name: Build
-      run: swift build
-    - name: Test
-      run: swift test --enable-test-discovery
-
-  ubuntu-latest:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Swift Version
-      run: swift --version
+    - name: Install depends
+      run: apt-get update && apt-get install -y libcurl4-openssl-dev libssl-dev
     - name: Build
       run: swift build
     - name: Test
